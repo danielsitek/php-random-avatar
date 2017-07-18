@@ -6,7 +6,6 @@
          >
     <testsuites>
         <testsuite name="Random Avatar Test Suite">
-            <directory suffix="Tests.php">./tests/avatar</directory>
             <directory suffix="Tests.php">./tests</directory>
         </testsuite>
     </testsuites>
