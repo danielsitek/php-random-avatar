@@ -1,6 +1,9 @@
 <?php
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
+use App;
 
 class LoaderTests extends TestCase {
 
