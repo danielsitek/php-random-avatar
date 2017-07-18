@@ -93,15 +93,15 @@ class Router
      */
     private function get_defined_gender($gender)
     {
-        if ( isset( $gender ) && in_array( $gender, $this->avatar->get_categories() ) ) {
+        if ( !in_array( $gender, $this->avatar->get_categories() ) ) {
 
-            return $this->avatar
-                        ->init()
-                        ->{$gender}();
-
-        } else {
-
-            $this->app->abort( 404, "There is no picture for the  \"$gender\" category." );
+            $this->app->abort( 404, "There is no picture for the  \"{$gender}\" category." );
+            return;
         }
+
+        return $this->avatar
+                    ->init()
+                    ->{$gender}();
+
     }
 }
