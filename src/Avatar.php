@@ -49,7 +49,7 @@ class Avatar {
     {
         $cat = array();
 
-        foreach ($this->image_array as $key) {
+        foreach ($this->image_array as $key => $value) {
             array_push($cat, $key);
         }
 
