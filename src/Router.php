@@ -26,7 +26,6 @@ class Router
     public function __construct($avatar_instance = null)
     {
         $this->app = new Silex\Application();
-        $this->app[ 'debug' ] = true;
 
         if ($avatar_instance) {
             $this->avatar = $avatar_instance;
