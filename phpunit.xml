@@ -3,6 +3,11 @@
          bootstrap="vendor/autoload.php"
          syntaxCheck="false"
          verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
          >
     <testsuites>
         <testsuite name="Random Avatar Test Suite">
@@ -10,7 +15,7 @@
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
