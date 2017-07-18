@@ -1,0 +1,22 @@
+{
+    "name": "danielsitek/php-random-avatar",
+    "desctiption": "A simple service which delivers a random avatar image as the response for GET request.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Sitek",
+            "email": "dan.sitek@gmail.com",
+            "homepage": "https://danielsitek.cz",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "silex/silex": "~1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": ["src/"]
+        }
+    }
+}
