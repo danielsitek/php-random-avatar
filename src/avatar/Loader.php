@@ -68,10 +68,10 @@ class Loader {
     {
         if ( ! isset( $gender ) ) {
             $this->gender = array_rand( $this->avatars );
-        } else {
-            $this->gender = $gender;
+            return $this;
         }
 
+        $this->gender = $gender;
         return $this;
     }
 

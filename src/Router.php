@@ -30,9 +30,10 @@ class Router
 
         if ($avatar_instance) {
             $this->avatar = $avatar_instance;
-        } else {
-            $this->avatar = new Avatar();
+            return;
         }
+
+        $this->avatar = new Avatar();
     }
 
     /**
