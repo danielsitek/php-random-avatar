@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Tests\Avatar;
 
 use PHPUnit\Framework\TestCase;
 use App;
@@ -21,11 +21,11 @@ class LoaderTests extends TestCase {
     public function testLoadRandomAvatarImage()
     {
         $loader = new App\Avatar\Loader();
-        $loader->set_images_root_path($this->root);
-        $loader->set_images_array($this->images);
-        $loader->set_gender();
+        $loader->setImagesRootPath($this->root);
+        $loader->setImagesArray($this->images);
+        $loader->setGender();
 
-        $image = $loader->load_image();
+        $image = $loader->loadImage();
 
         $this->assertArrayHasKey('file', $image);
         $this->assertArrayHasKey('headers', $image);
@@ -37,11 +37,11 @@ class LoaderTests extends TestCase {
     public function testLoadManAvatarImage()
     {
         $loader = new App\Avatar\Loader();
-        $loader->set_images_root_path($this->root);
-        $loader->set_images_array($this->images);
-        $loader->set_gender('man');
+        $loader->setImagesRootPath($this->root);
+        $loader->setImagesArray($this->images);
+        $loader->setGender('man');
 
-        $image = $loader->load_image();
+        $image = $loader->loadImage();
 
         $this->assertArrayHasKey('file', $image);
         $this->assertArrayHasKey('headers', $image);
@@ -55,11 +55,11 @@ class LoaderTests extends TestCase {
     public function testLoadWomanAvatarImage()
     {
         $loader = new App\Avatar\Loader();
-        $loader->set_images_root_path($this->root);
-        $loader->set_images_array($this->images);
-        $loader->set_gender('woman');
+        $loader->setImagesRootPath($this->root);
+        $loader->setImagesArray($this->images);
+        $loader->setGender('woman');
 
-        $image = $loader->load_image();
+        $image = $loader->loadImage();
 
         $this->assertArrayHasKey('file', $image);
         $this->assertArrayHasKey('headers', $image);

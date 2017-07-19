@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use App;
@@ -21,8 +21,8 @@ class AvatarTests extends TestCase {
     public function testGetRandomAvatar()
     {
         $avatar = new App\Avatar();
-        $avatar->set_image_root($this->root);
-        $avatar->set_images_array($this->images);
+        $avatar->setImageRoot($this->root);
+        $avatar->setImagesArray($this->images);
 
         $rendered = $avatar->init()->random();
 
@@ -34,8 +34,8 @@ class AvatarTests extends TestCase {
     public function testGetManAvatar()
     {
         $avatar = new App\Avatar();
-        $avatar->set_image_root($this->root);
-        $avatar->set_images_array($this->images);
+        $avatar->setImageRoot($this->root);
+        $avatar->setImagesArray($this->images);
 
         $rendered = $avatar->init()->man();
 
@@ -47,8 +47,8 @@ class AvatarTests extends TestCase {
     public function testGetWomanAvatar()
     {
         $avatar = new App\Avatar();
-        $avatar->set_image_root($this->root);
-        $avatar->set_images_array($this->images);
+        $avatar->setImageRoot($this->root);
+        $avatar->setImagesArray($this->images);
 
         $rendered = $avatar->init()->woman();
 
@@ -57,13 +57,13 @@ class AvatarTests extends TestCase {
         $this->assertContains('images/woman/001.png', $rendered['file']);
     }
 
-    public function testGetAvaiableCategories()
+    public function testGetAvailableCategories()
     {
         $avatar = new App\Avatar();
-        $avatar->set_image_root($this->root);
-        $avatar->set_images_array($this->images);
+        $avatar->setImageRoot($this->root);
+        $avatar->setImagesArray($this->images);
 
-        $categories = $avatar->get_categories();
+        $categories = $avatar->getCategories();
 
         $this->assertContains('man', $categories);
         $this->assertContains('woman', $categories);

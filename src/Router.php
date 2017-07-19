@@ -23,12 +23,12 @@ class Router
     /**
      * Construct Silex and Avatar app constructor
      */
-    public function __construct($avatar_instance = null)
+    public function __construct($avatarInstance = null)
     {
         $this->app = new Silex\Application();
 
-        if ($avatar_instance) {
-            $this->avatar = $avatar_instance;
+        if ($avatarInstance) {
+            $this->avatar = $avatarInstance;
             return;
         }
 
@@ -38,7 +38,7 @@ class Router
     /**
      * Set using routes over https
      */
-    public function use_https()
+    public function useHttps()
     {
         $this->app['controllers']->requireHttps();
 
@@ -52,11 +52,11 @@ class Router
     {
 
         $this->app->get( '/', function() {
-            $this->stream( $this->get_random_gender() );
+            $this->stream( $this->getRandomGender() );
         } );
 
         $this->app->get( '/{gender}', function( $gender ) {
-            $this->stream( $this->get_defined_gender( $gender ) );
+            $this->stream( $this->getDefinedGender( $gender ) );
         } );
 
         $this->app->run();
@@ -64,7 +64,9 @@ class Router
 
     /**
      * Render accepted image
-     * @param  array  $data [description]
+     *
+     * @param  array $data [description]
+     * @return string
      */
     private function stream( $data = array() )
     {
@@ -78,7 +80,7 @@ class Router
     /**
      * Get random avatar image
      */
-    private function get_random_gender()
+    private function getRandomGender()
     {
         return $this->avatar
                     ->init()
@@ -90,12 +92,11 @@ class Router
      *
      * @param  $gender  gender name
      */
-    private function get_defined_gender($gender)
+    private function getDefinedGender($gender)
     {
-        if ( !in_array( $gender, $this->avatar->get_categories() ) ) {
+        if ( !in_array( $gender, $this->avatar->getCategories() ) ) {
 
-            $this->app->abort( 404, "There is no picture for the  \"{$gender}\" category." );
-            return;
+            return $this->app->abort( 404, "There is no picture for the  \"{$gender}\" category." );
         }
 
         return $this->avatar
