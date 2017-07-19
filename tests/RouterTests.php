@@ -7,17 +7,6 @@ use App;
 
 class RouterTests extends TestCase {
 
-    private $root = __DIR__ . '/images';
-
-    private $images = array(
-        'man' => array(
-            '/man/001.png'
-        ),
-        'woman' => array(
-            '/woman/001.png'
-        )
-    );
-
     public function testRouterUsesHttps()
     {
         $router = new App\Router();
