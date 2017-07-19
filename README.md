@@ -1,3 +1,8 @@
+[![Dependencies](https://www.versioneye.com/user/projects/596e2f93368b080061c2c2be/badge.svg?style=flat-round)](https://www.versioneye.com/user/projects/596e2f93368b080061c2c2be?child=summary)
+[![Build Status](https://travis-ci.org/danielsitek/php-random-avatar.svg?branch=master)](https://travis-ci.org/danielsitek/php-random-avatar) 
+[![Code Climate](https://codeclimate.com/github/danielsitek/php-random-avatar/badges/gpa.svg)](https://codeclimate.com/github/danielsitek/php-random-avatar)
+![Codacy Badge](https://api.codacy.com/project/badge/Grade/29d4addcd53340249c18c4d083f1e41f)
+
 # README
 
 ## Introduction
