@@ -8,8 +8,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 $avatar = new App\Avatar();
 $router = new App\Router($avatar);
 
-$avatar->set_image_root( __DIR__ . '/images' );
-$avatar->set_images_array( array(
+$avatar->setImageRoot( __DIR__ . '/images' );
+$avatar->setImagesArray( array(
     'man' => array(
         '/man/001.png',
         '/man/002.png',
@@ -32,5 +32,5 @@ if ( in_array( @$_SERVER['REMOTE_ADDR'], ['127.0.0.1', 'fe80::1', '::1'] ) ) {
 
 } else {
 
-    $router->use_https()->run();
+    $router->useHttps()->run();
 }

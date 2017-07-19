@@ -10,8 +10,8 @@ namespace App\Avatar;
 
 class Loader {
 
-    /** @var string  $images_path  Set base path to image files */
-    private $images_path = '/images';
+    /** @var string  $imagesPath  Set base path to image files */
+    private $imagesPath = '/images';
 
     /** @var array  $avatars  Array with available images */
     private $avatars = array(
@@ -26,21 +26,19 @@ class Loader {
     /** @var string|null  $gender  Gender of avatar image */
     private $gender = null;
 
-    /** @var string|null  $image_file_path  Path to image file */
-    private $image_file_path = null;
-
-    /** @var string|null  $loaded_image  Image loaded to memory */
-    // private $loaded_image = null;
+    /** @var string|null  $imageFilePath  Path to image file */
+    private $imageFilePath = null;
 
 
     /**
      * Set root path to image files
      *
-     * @param  string  $path  Root path to image files
+     * @param  string $path Root path to image files
+     * @return $this
      */
-    public function set_images_root_path( $path )
+    public function setImagesRootPath( $path )
     {
-        $this->images_path = $path;
+        $this->imagesPath = $path;
 
         return $this;
     }
@@ -49,9 +47,10 @@ class Loader {
     /**
      * Set array with images for loading
      *
-     * @param  array  $images  Array with image file names
+     * @param  array $images Array with image file names
+     * @return $this
      */
-    public function set_images_array( $images = array() )
+    public function setImagesArray( $images = array() )
     {
         $this->avatars = $images;
 
@@ -62,9 +61,10 @@ class Loader {
     /**
      * Set gender for avatar image
      *
-     * @param  string|null  $gender  Set avatar gender
+     * @param  string|null $gender Set avatar gender
+     * @return $this
      */
-    public function set_gender( $gender = null )
+    public function setGender( $gender = null )
     {
         if ( ! isset( $gender ) ) {
             $this->gender = array_rand( $this->avatars );
@@ -79,16 +79,16 @@ class Loader {
     /**
      * Load image from filesystem and return array with path and headers
      */
-    public function load_image()
+    public function loadImage()
     {
-        $this->image_file_path = $this->get_image_file_path();
+        $this->imageFilePath = $this->getImageFilePath();
 
         return array(
-            'file' => $this->image_file_path,
+            'file' => $this->imageFilePath,
             'headers' => array(
                 'Accept-Ranges' => 'bytes',
                 'Content-Type' => 'image/png',
-                'Content-Length' => strlen( file_get_contents( $this->image_file_path ) ),
+                'Content-Length' => strlen( file_get_contents( $this->imageFilePath ) ),
                 'X-Avatar-Gender' => $this->gender,
                 'Expires' => 0,
                 'Cache-Control' => 'no-cache, no-store, must-revalidate',
@@ -101,8 +101,8 @@ class Loader {
     /**
      * Get path to image file
      */
-    private function get_image_file_path()
+    private function getImageFilePath()
     {
-        return $this->images_path . $this->avatars[ $this->gender ][ array_rand( $this->avatars[ $this->gender ] ) ];
+        return $this->imagesPath . $this->avatars[ $this->gender ][ array_rand( $this->avatars[ $this->gender ] ) ];
     }
 }

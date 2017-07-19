@@ -13,43 +13,64 @@ class Avatar {
     /** @var class  $loader  Loader app class */
     private $loader;
 
-    private $image_root = null;
-    private $image_array = null;
+
+    private $imageRoot = null;
+    private $imageArray = null;
 
 
+	/**
+     * @return $this
+     */
     public function init()
     {
         $this->loader = new Avatar\Loader();
 
         $this->loader
-            ->set_images_root_path( $this->image_root )
-            ->set_images_array( $this->image_array );
+            ->setImagesRootPath( $this->imageRoot )
+            ->setImagesArray( $this->imageArray );
 
         return $this;
     }
 
 
-    public function set_image_root($path)
+	/**
+     * Set root path for images
+     *
+     * @param $path
+     * @return $this
+     */
+    public function setImageRoot($path)
     {
-        $this->image_root = $path;
+        $this->imageRoot = $path;
 
         return $this;
     }
 
 
-    public function set_images_array($images)
+	/**
+     * Set array of images
+     *
+     * @param $images
+     * @return $this
+     */
+    public function setImagesArray($images)
     {
-        $this->image_array = $images;
+        $this->imageArray = $images;
 
         return $this;
     }
 
 
-    public function get_categories()
+	/**
+     * Get available categories
+     *
+     * @return array
+     */
+    public function getCategories()
     {
         $cat = array();
 
-        foreach ($this->image_array as $key) {
+        foreach ($this->imageArray as $key => $value) {
             array_push($cat, $key);
         }
 
@@ -57,35 +78,41 @@ class Avatar {
     }
 
 
-    /**
+	/**
      * Get random avatar image
+     *
+     * @return mixed
      */
     public function random()
     {
         return $this->loader
-            ->set_gender()
-            ->load_image();
+            ->setGender()
+            ->loadImage();
     }
 
 
-    /**
+	/**
      * Get random man avatar image
+     *
+     * @return mixed
      */
     public function man()
     {
         return $this->loader
-            ->set_gender( 'man' )
-            ->load_image();
+            ->setGender( 'man' )
+            ->loadImage();
     }
 
 
-    /**
+	/**
      * Get random woman avatar image
+     *
+     * @return mixed
      */
     public function woman()
     {
         return $this->loader
-            ->set_gender( 'woman' )
-            ->load_image();
+            ->setGender( 'woman' )
+            ->loadImage();
     }
 }
